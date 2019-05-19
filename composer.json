@@ -1,0 +1,40 @@
+{
+	"name": "bowriver/beans-sample",
+	"type": "wordpress-theme",
+	"description": "Sample child theme of the most innovative theme for WordPress. The real magic is under the hood.",
+	"homepage": "https://github.com/bowriverstudio/beans-sample",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Bowriverstudio",
+			"email": "opts@devbrs.com"
+		}
+	],
+	"require": {
+		"php": "^5.2 || ^7",
+		"composer/installers": "^1"
+	},
+	"require-dev": {
+		"php": "^5.6 || ^7",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+		"phpcompatibility/phpcompatibility-wp": "^2",
+		"squizlabs/php_codesniffer": "^3.3.2",
+		"wp-coding-standards/wpcs": "^1.1"
+	},
+	"config": {
+		"sort-order": true
+	},
+	"scripts": {
+		"install-codestandards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+		"phpcs-src": "\"vendor/bin/phpcs\" --ignore=*/tests/*",
+		"phpcs-tests": "\"vendor/bin/phpcs\" --runtime-set testVersion 5.6 tests/phpunit/",
+		"run-phpcs": [
+			"@phpcs-src",
+			"@phpcs-tests"
+		]
+	},
+	"support": {
+		"issues": "https://github.com/bowriverstudio/beans-sample/issues",
+		"source": "https://github.com/bowriverstudio/beans-sample"
+	}
+}
