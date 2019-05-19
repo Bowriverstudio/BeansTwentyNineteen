@@ -27,7 +27,11 @@ add_action( 'beans_uikit_enqueue_scripts', 'beans_child_enqueue_uikit_assets' );
  * @return void
  */
 function beans_child_enqueue_uikit_assets() {
-	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/style.less', 'less' );
+// Enqueue uikit overwrite theme folder
+	beans_uikit_enqueue_theme( 'jenkins', get_stylesheet_directory_uri() . '/assets/less/uikit' );
+
+	// Add the theme style as a uikit fragment to have access to all the variables
+	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/assets/less/style.less', 'less' );
 }
 
 // Remove breadcrumbs.
