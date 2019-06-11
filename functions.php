@@ -87,7 +87,7 @@ function beans_child_post_title()
 {
 	?>
 		<div class='uk-container uk-container-center'>
-			<h1 class='post-title'><?php the_title(); ?></h1>
+				<h1 class='post-title'><?php the_title(); ?></h1>
 		</div>
 
 	<?php
@@ -98,6 +98,7 @@ function beans_child_home_banner()
 	?>
 
 	<div class="has-background-cover">
+		<div class="has-background-cover-opacity"></div>
 	</div>
 
 	<?php
