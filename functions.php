@@ -48,13 +48,14 @@ function custom_modify_child_theme()
 
     // Remove undesired page elements
     beans_remove_action('beans_breadcrumb');
-    //beans_remove_action('beans_post_title');
+    beans_remove_action('beans_post_title');
 
 		//TODO: Remove skip links
 
 		// Header customizations
 		beans_add_attribute('beans_site_branding', 'class', 'uk-grid');
 		beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
+		beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
 
 		beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
 
