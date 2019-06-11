@@ -62,6 +62,7 @@ function custom_modify_child_theme()
 
 		// Post title customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_post_title');
+		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 }
 
 function site_title_description()
@@ -88,6 +89,16 @@ function beans_child_post_title()
 		<div class='uk-container uk-container-center'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
 		</div>
+
+	<?php
+}
+
+function beans_child_home_banner()
+{
+	?>
+
+	<div class="has-background-cover">
+	</div>
 
 	<?php
 }

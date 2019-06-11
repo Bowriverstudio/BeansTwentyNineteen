@@ -54,10 +54,27 @@ body {
 }
 
 .post-title {
-  margin: 66px 0 22px 0;
+  margin: 66px 0 42px 0;
   font-family: @ubuntu-fonts;
   font-weight: bolder;
   font-size: 3.5em;
+}
+
+.has-background-cover {
+  background-image: url('https://twentynineteendemo.files.wordpress.com/2018/11/apple-2568755_1920-2.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 400px;
+}
+
+.has-background-cover::before {
+  background-color: @base-heading-color;
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  opacity: .6;
+  z-index: 1;
 }
 
 // Styles for Announcement Bar
