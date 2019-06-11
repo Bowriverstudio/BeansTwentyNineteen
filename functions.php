@@ -58,8 +58,10 @@ function custom_modify_child_theme()
 		beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
 
 		beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
-
 		beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
+
+		// Post title customizations
+		beans_add_smart_action('beans_header_after_markup', 'beans_child_post_title');
 }
 
 function site_title_description()
@@ -78,5 +80,14 @@ function site_title_description()
 			<?php beans_close_markup_e('beans_site_title_tag', 'div' ); ?>
 		</div>
 	<?php
+}
 
+function beans_child_post_title()
+{
+	?>
+		<div class='uk-container uk-container-center'>
+			<h1 class='post-title'><?php the_title(); ?></h1>
+		</div>
+
+	<?php
 }
