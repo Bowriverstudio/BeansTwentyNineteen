@@ -5,6 +5,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap);
 
+@black-fonts:     #111;
+
 body {
 	font-family: 'Ubuntu', sans-serif;
 }
@@ -13,13 +15,21 @@ body {
   outline: none;
 }
 
+body {
+	color: @black-fonts;
+	font-weight: 400;
+	font-size: 1em;
+	line-height: 1.8;
+	text-rendering: optimizeLegibility;
+}
+
 /* Header elements
  ====================================================== */
 
 .site-title {
   display: inline;
   margin: auto;
-  color: #111;
+  color: @black-fonts;
   font-weight: 400;
 }
 
@@ -34,6 +44,16 @@ body {
   font-weight: 700;
   color: #0073aa;
   margin-right: .5rem;
+}
+
+.tm-article-content p {
+  color: @black-fonts;
+  font-family: "NonBreakingSpaceOverride","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+  word-wrap: break-word;
+  font-size: 1.8em;;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0 .25em 0 0;
 }
 
 // Styles for Announcement Bar
