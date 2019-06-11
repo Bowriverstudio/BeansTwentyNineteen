@@ -3,17 +3,37 @@
  * Make sure to enable development mode via the Admin->Appearance->Settings option while working on your website. LESS will then be processed on the fly.
  */
 
-h2 {
-  color: red;
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap);
+
+body {
+	font-family: 'Ubuntu', sans-serif;
 }
 
 :focus {
   outline: none;
 }
 
+/* Header elements
+ ====================================================== */
+
 .site-title {
+  display: inline;
+  margin: auto;
+  color: #111;
   font-weight: 400;
-  color: red;
+}
+
+.site-description {
+	display: inline;
+	color: #767676;
+	font-weight: 400;
+	margin: 0;
+}
+
+.uk-navbar > ul > li > a {
+  font-weight: 700;
+  color: #0073aa;
+  margin-right: .5rem;
 }
 
 // Styles for Announcement Bar

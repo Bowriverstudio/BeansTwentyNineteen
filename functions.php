@@ -13,8 +13,6 @@
 // Include Beans. Do not remove the line below.
 require_once get_template_directory() . '/lib/init.php';
 
-add_action( 'beans_uikit_enqueue_scripts', 'beans_child_enqueue_uikit_assets' );
-
 /**
  * Enqueue's Sample themes default LESS Styles.
  *
@@ -35,8 +33,9 @@ function beans_child_enqueue_uikit_assets() {
 
 	// Add the theme style as a uikit fragment to have access to all the variables
 	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/assets/less/style.less', 'less' );
+	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/style.less', 'less' );
 
-	// Useful UIKit components
+	// Load UIKit components
 	beans_uikit_enqueue_components(array( 'sticky', 'slideshow', 'dotnav', 'slidenav' ), 'add-ons');
 	beans_uikit_enqueue_components(array( 'cover', 'section', 'block', 'flex', 'padding', 'grid', 'width', 'animation', 'overlay', 'utility', 'thumbnav', 'thumbnail' ));
 }
@@ -53,10 +52,7 @@ function custom_modify_child_theme()
 
 		//TODO: Remove skip links
 
-		//beans_add_smart_action('beans_header_after_markup', 'beans_child_modify_header');
-
-		//beans_modify_action_hook('beans_primary_menu', 'site_elements_after_markup');
-
+		// Header customizations
 		beans_add_attribute('beans_site_branding', 'class', 'uk-grid');
 		beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
 
@@ -70,14 +66,14 @@ function site_title_description()
 	?>
 		<div>
 			<?php beans_open_markup_e('beans_site_title_tag', 'div', array()  ); ?>
-			<div class="uk-grid">
-				<p class="site-title">
-					<?php echo get_bloginfo( 'name'); ?>
-				</p>
-				<p class="site-description">
-					<?php echo get_bloginfo( 'description'); ?>
-				</p>
-			</div>
+				<div class="uk-grid">
+					<p class="site-title">
+						<?php echo get_bloginfo( 'name'); ?>
+					</p>
+					<p class="site-description">
+						<?php echo get_bloginfo( 'description'); ?>
+					</p>
+				</div>
 			<?php beans_close_markup_e('beans_site_title_tag', 'div' ); ?>
 		</div>
 	<?php
