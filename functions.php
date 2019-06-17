@@ -65,6 +65,14 @@ function custom_modify_child_theme()
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 }
 
+add_action( 'after_setup_theme', 'beans_child_register_menus' );
+
+function beans_child_register_menus() {
+	register_nav_menus( array(
+		'social_links_menu' => 'Social Links Menu',
+	) );
+}
+
 function site_title_description()
 {
 	?>
@@ -98,7 +106,8 @@ function beans_child_home_banner()
 	?>
 
 	<div class="has-background-cover">
-		<div class="has-background-cover-opacity"></div>
+		<div class="has-background-cover-opacity">
+		</div>
 	</div>
 
 	<?php
