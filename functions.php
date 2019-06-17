@@ -53,7 +53,7 @@ function custom_modify_child_theme()
 		//TODO: Remove skip links
 
 		// Header customizations
-		beans_add_attribute('beans_site_branding', 'class', 'uk-grid');
+		beans_add_attribute('beans_site_branding', 'class', 'uk-grid uk-pull-1-10');
 		beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
 		beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
 
