@@ -65,6 +65,10 @@ function custom_modify_child_theme()
 
 		// Home banner and featured image customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
+
+		// Move featured image position
+		beans_modify_action_hook('beans_post_image', 'beans_head_after_markup');
+		beans_replace_attribute('beans_post_image_item', 'width', '1200');
 }
 
 // Social links menu registration
@@ -110,12 +114,8 @@ function beans_child_post_title()
  */
 function beans_child_home_banner()
 {
-	if (has_post_thumbnail()):
+	if ( ! has_post_thumbnail()):
 	?>
-		<!-- Featured Image -->
-		<div class="featured-image">
-		</div>
-	<?php else: ?>
 		<div class="has-background-cover">
 			<div class="has-background-cover-opacity">
 			</div>
