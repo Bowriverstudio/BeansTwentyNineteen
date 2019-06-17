@@ -62,9 +62,12 @@ function custom_modify_child_theme()
 
 		// Post title customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_post_title');
+
+		// Home banner and featured image customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 }
 
+// Social links menu registration
 add_action( 'after_setup_theme', 'beans_child_register_menus' );
 
 function beans_child_register_menus() {
@@ -101,14 +104,22 @@ function beans_child_post_title()
 	<?php
 }
 
+
+/**
+ * Home banner and featured image customization
+ */
 function beans_child_home_banner()
 {
+	if (has_post_thumbnail()):
 	?>
-
-	<div class="has-background-cover">
-		<div class="has-background-cover-opacity">
+		<!-- Featured Image -->
+		<div class="featured-image">
 		</div>
-	</div>
-
+	<?php else: ?>
+		<div class="has-background-cover">
+			<div class="has-background-cover-opacity">
+			</div>
+		</div>
 	<?php
+	endif;
 }
