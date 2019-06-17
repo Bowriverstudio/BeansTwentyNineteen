@@ -72,7 +72,7 @@ function site_title_description()
 			<?php beans_open_markup_e('beans_site_title_tag', 'div', array()  ); ?>
 				<div class="uk-grid">
 					<p class="site-title">
-						<?php echo get_bloginfo( 'name'); ?>
+						<a href="<?php echo get_bloginfo( 'url'); ?>" rel="home"><?php echo get_bloginfo( 'name'); ?></a>
 					</p>
 					<p class="site-description">
 						<?php echo get_bloginfo( 'description'); ?>
