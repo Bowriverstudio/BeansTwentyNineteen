@@ -66,7 +66,7 @@ function custom_modify_child_theme()
 		// Home banner and featured image customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 
-		// Move featured image position		
+		// Move featured image position
 		beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
 		beans_add_attribute('beans_post_image_item', 'width', '100%');
 }
@@ -80,6 +80,8 @@ function beans_child_post_image()
 		<!-- Featured image -->
 		<div class="tm-article-image">
 			<img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+			<div class="has-background-cover-opacity">
+			</div>
 		</div>
 
 	<?php
@@ -96,14 +98,18 @@ function beans_child_register_menus() {
 
 function site_title_description()
 {
+	$site_info_color_suffix = "";
+	if ( has_post_thumbnail()) {
+		$site_info_color_suffix = "-white";
+	}
 	?>
 		<div>
 			<?php beans_open_markup_e('beans_site_title_tag', 'div', array()  ); ?>
 				<div class="uk-grid">
-					<p class="site-title">
-						<a href="<?php echo get_bloginfo( 'url'); ?>" rel="home"><?php echo get_bloginfo( 'name'); ?></a>
+					<p>
+						<a class="site-title<?php echo $site_info_color_suffix; ?>" href="<?php echo get_bloginfo( 'url'); ?>" rel="home"><?php echo get_bloginfo( 'name'); ?></a>
 					</p>
-					<p class="site-description">
+					<p class="site-description<?php echo $site_info_color_suffix; ?>">
 						<?php echo get_bloginfo( 'description'); ?>
 					</p>
 				</div>
@@ -135,5 +141,7 @@ function beans_child_home_banner()
 			</div>
 		</div>
 	<?php
+	else:
+		beans_add_attribute('beans_site_branding', 'class', 'white-fonts');
 	endif;
 }
