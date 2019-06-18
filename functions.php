@@ -94,11 +94,11 @@ function beans_child_footer_content()
 
 			<div class="uk-grid uk-grid-width-1-2">
 
-				<div>
+				<div class="footer-column footer-column-1">
 						<?php echo beans_get_widget_area_output('footer-column-1'); ?>
 				</div>
 
-        <div>
+        <div class="footer-column footer-column-2">
 					<?php echo beans_get_widget_area_output('footer-column-2'); ?>
         </div>
 
