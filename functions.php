@@ -104,6 +104,15 @@ function beans_child_footer_content()
 
 			</div>
 
+			<div class="footer-copyright-info">
+				<?php echo get_theme_mod( 'footer-copyright-info', $default = false ) ?>
+			</div>
+
+			<div class="footer-copyright-info">
+					<a class="site-name" href="<?php echo get_bloginfo( 'url' ); ?>"><?php echo get_bloginfo( 'name'); ?></a>,
+					<spam class="site-description"><?php echo get_bloginfo( 'description'); ?></spam>
+			</div>
+
     </div>
     <?php
 }
