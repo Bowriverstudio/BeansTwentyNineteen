@@ -68,9 +68,7 @@ function custom_modify_child_theme()
 
 		// Move featured image position
 		beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
-		beans_add_attribute('beans_post_image_item', 'width', '100%');
 }
-
 
 // Featured image fixes
 function beans_child_post_image()
@@ -79,8 +77,10 @@ function beans_child_post_image()
 
 		<!-- Featured image -->
 		<div class="tm-article-image">
-			<img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
-			<div class="has-background-cover-opacity">
+			<div class="uk-overlay">
+				<img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+				<div class="uk-overlay-panel uk-overlay-background">
+				</div>
 			</div>
 		</div>
 
@@ -141,7 +141,5 @@ function beans_child_home_banner()
 			</div>
 		</div>
 	<?php
-	else:
-		beans_add_attribute('beans_site_branding', 'class', 'white-fonts');
 	endif;
 }
