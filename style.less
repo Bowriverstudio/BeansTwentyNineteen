@@ -103,6 +103,25 @@ li.uk-active > a {
 .tm-header {
 	border-bottom-width: 0;
 }
+
+h3.uk-panel-title::before {
+	background: #767676;
+	content: "\020";
+	display: block;
+	height: 2px;
+	margin: 2rem 0;
+	width: 1em;
+}
+
+.uk-panel-title {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: none;
+  color: @base-heading-color;
+  font-weight: bolder;
+  font-size: 3.5rem;
+  margin: 3rem 0;
+}
+
 // Styles for Announcement Bar
 .tm-toolbar {
 	background-color: #222;
