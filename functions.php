@@ -68,7 +68,7 @@ function custom_modify_child_theme()
 
 		// Move featured image position
 		beans_modify_action_hook('beans_post_image', 'beans_head_after_markup');
-		beans_replace_attribute('beans_post_image_item', 'width', '1200');
+		beans_add_attribute('beans_post_image_item', 'width', '100%');
 }
 
 // Social links menu registration
