@@ -120,9 +120,13 @@ function site_title_description()
 
 function beans_child_post_title()
 {
+	$post_title_class = "post-title";
+	if ( has_post_thumbnail()) {
+		$post_title_class = "post-title-big-margin";
+	}
 	?>
-		<div class='uk-container uk-container-center'>
-				<h1 class='post-title'><?php the_title(); ?></h1>
+		<div class="uk-container uk-container-center">
+				<h1 class="<?php echo $post_title_class; ?>"><?php the_title(); ?></h1>
 		</div>
 
 	<?php
