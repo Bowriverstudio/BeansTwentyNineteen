@@ -66,9 +66,23 @@ function custom_modify_child_theme()
 		// Home banner and featured image customizations
 		beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 
-		// Move featured image position
-		beans_modify_action_hook('beans_post_image', 'beans_head_after_markup');
+		// Move featured image position		
+		beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
 		beans_add_attribute('beans_post_image_item', 'width', '100%');
+}
+
+
+// Featured image fixes
+function beans_child_post_image()
+{
+	?>
+
+		<!-- Featured image -->
+		<div class="tm-article-image">
+			<img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+		</div>
+
+	<?php
 }
 
 // Social links menu registration
