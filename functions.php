@@ -68,6 +68,33 @@ function custom_modify_child_theme()
 
 		// Move featured image position
 		beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
+
+		// Footer customizations
+		beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');
+}
+
+
+function beans_child_footer_content()
+{
+    ?>
+    <div class="uk-container uk-container-center" data-uk-grid-margin>
+
+			<div class="uk-grid uk-grid-width-1-2">
+
+				<div class="uk-align-left">
+						<p class="">Hello column 1</p>
+				</div>
+
+        <div>
+          <p>
+            Hello Dolly!
+          </p>
+        </div>
+
+			</div>
+
+    </div>
+    <?php
 }
 
 // Featured image fixes
