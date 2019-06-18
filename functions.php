@@ -73,6 +73,19 @@ function custom_modify_child_theme()
 		beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');
 }
 
+add_action('widgets_init', 'setup_widgets');
+
+function setup_widgets()
+{
+    for ($i=1; $i<=2; $i++) {
+        beans_register_widget_area(array(
+            'name' => 'Footer Column '.$i,
+            'id' => 'footer-column-'.$i,
+            'description' => 'Footer widgets Area '.$i,
+        ));
+    }
+}
+
 
 function beans_child_footer_content()
 {
@@ -81,14 +94,12 @@ function beans_child_footer_content()
 
 			<div class="uk-grid uk-grid-width-1-2">
 
-				<div class="uk-align-left">
-						<p class="">Hello column 1</p>
+				<div>
+						<?php echo beans_get_widget_area_output('footer-column-1'); ?>
 				</div>
 
         <div>
-          <p>
-            Hello Dolly!
-          </p>
+					<?php echo beans_get_widget_area_output('footer-column-2'); ?>
         </div>
 
 			</div>
