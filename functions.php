@@ -176,11 +176,25 @@ function beans_child_post_title()
 	?>
 		<div class="uk-container uk-container-center">
 				<h1 class="<?php echo $post_title_class; ?>"><?php the_title(); ?></h1>
-		</div>
-		
-		<?php if ( is_blog_page() ): ?>
+				<?php if ( is_blog_page() ): ?>
+					<div class="uk-grid white-text">
+						<div class="field-box">
+							<i class="uk-icon uk-icon-user"></i>
+							<?php echo get_bloginfo( 'author' ); ?>
+						</div>
+						<div class="field-box">
+							<i class="uk-icon uk-icon-clock-o"></i>
+							<?php echo get_the_date(); ?>
+						</div>
+						<div class="field-box uk-align-right">
+							<i class="uk-icon uk-icon-comments"></i>
+							<?php echo get_comments_number( ) . " Comments"; ?>
+						</div>
+					</div>
 
-		<?php endif; ?>
+				</div>
+				<?php endif; ?>
+		</div>
 
 	<?php
 }
