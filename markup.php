@@ -144,7 +144,7 @@ function display_social_links_menu()
     <div class="social-links-menu-wrapper uk-grid">
       <?php foreach (array("facebook", "twitter", "instagram") as $key): ?>
         <?php $white = ( has_post_thumbnail() ) ? "white-text " : "" ;?>
-        <a class="<?php echo $white; ?>uk-icon uk-icon-<?php echo $key; ?> uk-icon-large" href="https://www.<?php echo $key; ?>.com/<?php get_theme_mod( $key . '_tag' ); ?>"> </a>
+        <a class="<?php echo $white; ?>uk-icon uk-icon-<?php echo $key; ?> uk-icon-large" href="<?php echo get_theme_mod( "social_" . $key ); ?>"> </a>
       <?php endforeach; ?>
     </div>
 
