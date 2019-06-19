@@ -4,9 +4,6 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
 
-@base-heading-size:   3.5em;
-@cool-fonts: "NonBreakingSpaceOverride", "Hoefler Text", "Baskerville Old Face", Garamond, "Times New Roman", serif;
-
 :focus {
 	outline: none;
 }
@@ -36,7 +33,7 @@ h2 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: @ubuntu-fonts;
   font-weight: bolder;
   line-height: normal;
 }
@@ -92,7 +89,7 @@ h6 {
 
 .tm-article-content p {
 	color: @base-heading-color;
-	font-family: "NonBreakingSpaceOverride","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+	font-family: @cool-fonts;
 	word-wrap: break-word;
 	font-size: 1.8em;
 	line-height: 1.5;
@@ -137,7 +134,7 @@ h6 {
 
 .site-title,
 .tm-primary-menu {
-	font-family: 'Ubuntu', sans-serif !important;
+	font-family: @ubuntu-fonts !important;
 }
 
 li.uk-active > a {
@@ -166,7 +163,7 @@ h1.post-title-big-margin::before {
 }
 
 .footer-column h3 {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: @ubuntu-fonts;
   text-transform: none;
   color: @base-heading-color;
   font-weight: bolder;
@@ -176,7 +173,7 @@ h1.post-title-big-margin::before {
 }
 
 .footer-column p {
-  font-family: "NonBreakingSpaceOverride","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+  font-family: @cool-fonts;
   color: @base-heading-color;
   font-weight: 400;
   font-size: 1.7em;
