@@ -31,19 +31,20 @@ require_once get_stylesheet_directory() . '/widgets.php';
  * @return void
  */
 
-add_action( 'beans_uikit_enqueue_scripts', 'beans_child_enqueue_uikit_assets' );
+add_action('beans_uikit_enqueue_scripts', 'beans_child_enqueue_uikit_assets');
 
-function beans_child_enqueue_uikit_assets() {
-  // Enqueue uikit overwrite theme folder
-	beans_uikit_enqueue_theme( 'jenkins', get_stylesheet_directory_uri() . '/assets/less/uikit' );
+function beans_child_enqueue_uikit_assets()
+{
+    // Enqueue uikit overwrite theme folder
+    beans_uikit_enqueue_theme('jenkins', get_stylesheet_directory_uri() . '/assets/less/uikit');
 
-	// Add the theme style as a uikit fragment to have access to all the variables
-	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/assets/less/style.less', 'less' );
-	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/style.less', 'less' );
+    // Add the theme style as a uikit fragment to have access to all the variables
+    beans_compiler_add_fragment('uikit', get_stylesheet_directory_uri() . '/assets/less/style.less', 'less');
+    beans_compiler_add_fragment('uikit', get_stylesheet_directory_uri() . '/style.less', 'less');
 
-	// Load UIKit components
-	beans_uikit_enqueue_components(array( 'sticky', ), 'add-ons');
-	beans_uikit_enqueue_components(array( 'cover', 'overlay', 'utility', ));
+    // Load UIKit components
+    beans_uikit_enqueue_components(array( 'sticky', ), 'add-ons');
+    beans_uikit_enqueue_components(array( 'cover', 'overlay', 'utility', ));
 }
 
 // Add child theme customizations
@@ -56,42 +57,44 @@ function custom_modify_child_theme()
     beans_remove_action('beans_breadcrumb');
     beans_remove_action('beans_post_title');
 
-		//TODO: Remove skip links
+    //TODO: Remove skip links
 
-		// Header customizations
-		beans_add_attribute('beans_site_branding', 'class', 'uk-grid uk-pull-1-10');
-		beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
-		beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
+    // Header customizations
+    beans_add_attribute('beans_site_branding', 'class', 'uk-grid uk-pull-1-10');
+    beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
+    beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
 
-		beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
-		beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
+    beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
+    beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
 
-		// Home banner and featured image customizations
-		// Only show if no featured image present
-		if ( ! has_post_thumbnail() ) {
-			beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
-		} else {
-			beans_add_attribute('beans_menu_item_link', 'class', 'white-text');
-			beans_remove_attribute('beans_menu_item', 'class', 'uk-active');
-		}
+    // Home banner and featured image customizations
+    // Only show if no featured image present
+    if (! has_post_thumbnail()) {
+        beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
+    } else {
+        // Necessary adjustments when featured image is present so links remain visible
+        beans_add_attribute('beans_menu_item_link', 'class', 'white-text');
+        beans_remove_attribute('beans_menu_item', 'class', 'uk-active');
+    }
 
-		beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
-		// Post title customizations
-		beans_add_smart_action('beans_child_header_append_markup', 'beans_child_post_title');
-		beans_add_smart_action('beans_child_header_prepend_markup', 'beans_child_post_image');
+    beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
+    // Post title customizations
+    beans_add_smart_action('beans_child_header_append_markup', 'beans_child_post_title');
+    beans_add_smart_action('beans_child_header_prepend_markup', 'beans_child_post_image');
 
-		// Footer customizations
-		beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');
+    // Footer customizations
+    beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');
 
-		// Blog related customizations
-		beans_remove_action('beans_post_meta');
+    // Blog related customizations
+    beans_remove_action('beans_post_meta');
 }
 
 // Social links menu registration
-add_action( 'after_setup_theme', 'beans_child_register_menus' );
+add_action('after_setup_theme', 'beans_child_register_menus');
 
-function beans_child_register_menus() {
-	register_nav_menus( array(
-		'social_links_menu' => 'Social Links Menu',
-	) );
+function beans_child_register_menus()
+{
+    register_nav_menus(array(
+        'social_links_menu' => 'Social Links Menu',
+    ));
 }
