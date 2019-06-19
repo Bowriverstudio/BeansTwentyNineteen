@@ -79,20 +79,6 @@ function custom_modify_child_theme()
 		beans_remove_action('beans_post_meta');
 }
 
-add_action('widgets_init', 'setup_widgets');
-
-function setup_widgets()
-{
-    for ($i=1; $i<=2; $i++) {
-        beans_register_widget_area(array(
-            'name' => 'Footer Column '.$i,
-            'id' => 'footer-column-'.$i,
-            'description' => 'Footer widgets Area '.$i,
-        ));
-    }
-}
-
-
 /**
  * WordPress' missing is_blog_page() function.  Determines if the currently viewed page is
  * one of the blog pages, including the blog home page, archive, category/tag, author, or single
