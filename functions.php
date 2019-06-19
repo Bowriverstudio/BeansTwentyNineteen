@@ -16,6 +16,9 @@ require_once get_template_directory() . '/lib/init.php';
 // Include markup functions
 require_once get_stylesheet_directory() . '/markup.php';
 
+// Include widgets
+require_once get_stylesheet_directory() . '/widgets.php';
+
 /**
  * Enqueue's Sample themes default LESS Styles.
  *
