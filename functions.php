@@ -71,6 +71,9 @@ function custom_modify_child_theme()
 
 		// Footer customizations
 		beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');
+
+		// Blog related customizations
+		beans_remove_action('beans_post_meta');
 }
 
 add_action('widgets_init', 'setup_widgets');
@@ -174,6 +177,10 @@ function beans_child_post_title()
 		<div class="uk-container uk-container-center">
 				<h1 class="<?php echo $post_title_class; ?>"><?php the_title(); ?></h1>
 		</div>
+		
+		<?php if ( is_blog_page() ): ?>
+
+		<?php endif; ?>
 
 	<?php
 }
@@ -192,4 +199,26 @@ function beans_child_home_banner()
 		</div>
 	<?php
 	endif;
+}
+
+
+/**
+ * WordPress' missing is_blog_page() function.  Determines if the currently viewed page is
+ * one of the blog pages, including the blog home page, archive, category/tag, author, or single
+ * post pages.
+ *
+ * Taken from (https://gist.github.com/wesbos/1189639)
+ *
+ * @return bool
+ */
+function is_blog_page()
+{
+    global $post;
+
+    // Post type must be 'post'.
+    $post_type = get_post_type($post);
+
+    // Check all blog-related conditional tags, as well as the current post type,
+    // to determine if we're viewing a blog page.
+    return ( $post_type === 'post' ) && ( is_home() || is_archive() || is_single() );
 }
