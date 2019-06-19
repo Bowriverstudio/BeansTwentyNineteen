@@ -66,9 +66,6 @@ function custom_modify_child_theme()
 		beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
 		beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
 
-		// Post title customizations
-		beans_add_smart_action('beans_header_after_markup', 'beans_child_post_title');
-
 		// Home banner and featured image customizations
 		// Only show if no featured image present
 		if ( ! has_post_thumbnail() ) {
@@ -76,7 +73,12 @@ function custom_modify_child_theme()
 		}
 
 		// Move featured image position
-		beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');		
+		//beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
+
+		beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
+		// Post title customizations
+		beans_add_smart_action('beans_child_header_append_markup', 'beans_child_post_title');
+		beans_add_smart_action('beans_child_header_prepend_markup', 'beans_child_post_image');
 
 		// Footer customizations
 		beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');

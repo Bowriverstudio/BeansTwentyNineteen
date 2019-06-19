@@ -47,7 +47,7 @@ function beans_child_post_image()
 		<!-- Featured image -->
 		<div class="tm-article-image">
 			<div class="uk-overlay">
-				<img class="uk-responsive-height" src="<?php echo get_the_post_thumbnail_url(); ?>"/>
+				<img src="<?php echo get_the_post_thumbnail_url(); ?>"/>
 				<div class="uk-overlay-panel uk-overlay-background">
 				</div>
 			</div>
