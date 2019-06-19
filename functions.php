@@ -72,9 +72,6 @@ function custom_modify_child_theme()
 			beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
 		}
 
-		// Move featured image position
-		//beans_modify_action('beans_post_image', 'beans_head_after_markup', 'beans_child_post_image');
-
 		beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
 		// Post title customizations
 		beans_add_smart_action('beans_child_header_append_markup', 'beans_child_post_title');
