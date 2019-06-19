@@ -121,7 +121,6 @@ function beans_child_footer_content()
 function beans_child_post_image()
 {
 	?>
-
 		<!-- Featured image -->
 		<div class="tm-article-image">
 			<div class="uk-overlay">
