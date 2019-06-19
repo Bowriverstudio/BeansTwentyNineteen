@@ -63,18 +63,14 @@ function site_title_description()
 		$site_info_color_suffix = "-white";
 	}
 	?>
-		<div>
-			<?php beans_open_markup_e('beans_site_title_tag', 'div', array()  ); ?>
-				<div class="uk-grid">
-					<p>
+			<?php beans_open_markup_e('beans_site_title_tag', 'div', array('class' => 'uk-grid uk-grid-width-small-1-2')  ); ?>
+          <p>
 						<a class="site-title<?php echo $site_info_color_suffix; ?>" href="<?php echo get_bloginfo( 'url'); ?>" rel="home"><?php echo get_bloginfo( 'name'); ?></a>
-					</p>
-					<p class="site-description<?php echo $site_info_color_suffix; ?>">
-						<?php echo get_bloginfo( 'description'); ?>
-					</p>
-				</div>
+					  <p class="site-description<?php echo $site_info_color_suffix; ?>">
+  						<?php echo get_bloginfo( 'description'); ?>
+  					</p>
+          </p>
 			<?php beans_close_markup_e('beans_site_title_tag', 'div' ); ?>
-		</div>
 	<?php
 }
 
@@ -123,6 +119,22 @@ function beans_child_home_banner()
 		</div>
 	<?php
 	endif;
+}
+
+function site_branding_wrap_open() {
+  ?>
+
+    <div class="uk-width-4-5">
+
+  <?php
+}
+
+function site_branding_wrap_close() {
+  ?>
+
+  </div>
+
+  <?php
 }
 
 /**

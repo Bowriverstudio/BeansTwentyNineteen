@@ -60,12 +60,16 @@ function custom_modify_child_theme()
     //TODO: Remove skip links
 
     // Header customizations
-    beans_add_attribute('beans_site_branding', 'class', 'uk-grid uk-pull-1-10');
+    beans_add_attribute('beans_site_branding', 'class', 'uk-grid uk-width-small-4-5 uk-pull-1-10');
     beans_remove_attribute('beans_primary_menu', 'class', 'uk-float-right');
-    beans_add_attribute('beans_post', 'class', 'uk-width-medium-7-10');
+    beans_add_attribute('beans_post', 'class', 'uk-width-small-7-10');
 
     beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
     beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
+
+		// Test
+		beans_add_smart_action('beans_site_title_link_after_markup', 'site_branding_wrap_open');
+		beans_add_smart_action('beans_site_branding_append_markup', 'site_branding_wrap_close');
 
     // Home banner and featured image customizations
     // Only show if no featured image present
