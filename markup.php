@@ -28,12 +28,12 @@ function beans_child_footer_content()
 			</div>
 
 			<div class="footer-copyright-info">
-				<?php echo get_theme_mod( 'footer-copyright-info', $default = false ) ?>
+				<?php echo get_theme_mod('footer-copyright-info', $default = false) ?>
 			</div>
 
 			<div class="footer-copyright-info">
-					<a class="site-name" href="<?php echo get_bloginfo( 'url' ); ?>"><?php echo get_bloginfo( 'name'); ?></a>,
-					<spam class="site-description"><?php echo get_bloginfo( 'description'); ?></spam>
+					<a class="site-name" href="<?php echo get_bloginfo('url'); ?>"><?php echo get_bloginfo('name'); ?></a>,
+					<spam class="site-description"><?php echo get_bloginfo('description'); ?></spam>
 			</div>
 
     </div>
@@ -43,7 +43,7 @@ function beans_child_footer_content()
 // Featured image fixes
 function beans_child_post_image()
 {
-	?>
+    ?>
 		<!-- Featured image -->
 		<div class="tm-article-image">
 			<div class="uk-overlay">
@@ -58,36 +58,34 @@ function beans_child_post_image()
 
 function site_title_description()
 {
-	$site_info_color_suffix = "";
-	if ( has_post_thumbnail()) {
-		$site_info_color_suffix = "-white";
-	}
-	?>
-			<?php beans_open_markup_e('beans_site_title_tag', 'div', array('class' => 'uk-grid uk-grid-width-small-1-2')  ); ?>
+    $site_info_color_suffix = "";
+    if (has_post_thumbnail()) {
+        $site_info_color_suffix = "-white";
+    } ?>
+			<?php beans_open_markup_e('beans_site_title_tag', 'div', array('class' => 'uk-grid uk-grid-width-small-1-2')); ?>
           <p>
-						<a class="site-title<?php echo $site_info_color_suffix; ?>" href="<?php echo get_bloginfo( 'url'); ?>" rel="home"><?php echo get_bloginfo( 'name'); ?></a>
+						<a class="site-title<?php echo $site_info_color_suffix; ?>" href="<?php echo get_bloginfo('url'); ?>" rel="home"><?php echo get_bloginfo('name'); ?></a>
 					  <p class="site-description<?php echo $site_info_color_suffix; ?>">
-  						<?php echo get_bloginfo( 'description'); ?>
+  						<?php echo get_bloginfo('description'); ?>
   					</p>
           </p>
-			<?php beans_close_markup_e('beans_site_title_tag', 'div' ); ?>
+			<?php beans_close_markup_e('beans_site_title_tag', 'div'); ?>
 	<?php
 }
 
 function beans_child_post_title()
 {
-	$post_title_class = "post-title";
-	if ( has_post_thumbnail()) {
-		$post_title_class = "post-title-big-margin";
-	}
-	?>
+    $post_title_class = "post-title";
+    if (has_post_thumbnail()) {
+        $post_title_class = "post-title-big-margin";
+    } ?>
 		<div class="uk-container uk-container-center">
 				<h1 class="<?php echo $post_title_class; ?>"><?php the_title(); ?></h1>
-				<?php if ( is_blog_page() ): ?>
+				<?php if (is_blog_page()): ?>
 					<div class="uk-grid white-text">
 						<div class="field-box">
 							<i class="uk-icon uk-icon-user"></i>
-							<?php echo get_bloginfo( 'author' ); ?>
+							<?php echo get_bloginfo('author'); ?>
 						</div>
 						<div class="field-box">
 							<i class="uk-icon uk-icon-clock-o"></i>
@@ -95,7 +93,7 @@ function beans_child_post_title()
 						</div>
 						<div class="field-box uk-align-right">
 							<i class="uk-icon uk-icon-comments"></i>
-							<?php echo get_comments_number( ) . " Comments"; ?>
+							<?php echo get_comments_number() . " Comments"; ?>
 						</div>
 					</div>
 
@@ -111,28 +109,43 @@ function beans_child_post_title()
  */
 function beans_child_home_banner()
 {
-	if ( ! has_post_thumbnail()):
-	?>
+    if (! has_post_thumbnail()):
+    ?>
 		<div class="has-background-cover">
 			<div class="has-background-cover-opacity">
 			</div>
 		</div>
 	<?php
-	endif;
+    endif;
 }
 
-function site_branding_wrap_open() {
-  ?>
+function site_branding_wrap_open()
+{
+    ?>
 
     <div class="uk-width-4-5">
 
   <?php
 }
 
-function site_branding_wrap_close() {
-  ?>
+function site_branding_wrap_close()
+{
+    ?>
 
   </div>
+
+  <?php
+}
+
+function display_social_links_menu()
+{
+  ?>
+
+    <div class="social-links-menu-wrapper uk-grid">
+      <?php foreach (array("facebook", "twitter", "instagram") as $key): ?>
+        <a class="uk-icon uk-icon-<?php echo $key; ?> uk-icon-large" href="https://www.<?php echo $key; ?>.com/<?php get_theme_mod( $key . '_tag' ); ?>"> </a>
+      <?php endforeach; ?>
+    </div>
 
   <?php
 }
@@ -155,5 +168,5 @@ function is_blog_page()
 
     // Check all blog-related conditional tags, as well as the current post type,
     // to determine if we're viewing a blog page.
-    return ( $post_type === 'post' ) && ( is_home() || is_archive() || is_single() );
+    return ($post_type === 'post') && (is_home() || is_archive() || is_single());
 }

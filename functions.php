@@ -67,7 +67,10 @@ function custom_modify_child_theme()
     beans_modify_action_callback('beans_site_title_tag', 'site_title_description');
     beans_modify_action_hook('beans_primary_menu', 'beans_site_title_tag_after_markup');
 
-		// Test
+		// Display social links menu (using customizer)
+		beans_add_smart_action('beans_primary_menu_after_markup', 'display_social_links_menu');
+
+		// Wrappers to fix site title and description positions
 		beans_add_smart_action('beans_site_title_link_after_markup', 'site_branding_wrap_open');
 		beans_add_smart_action('beans_site_branding_append_markup', 'site_branding_wrap_close');
 
@@ -91,14 +94,4 @@ function custom_modify_child_theme()
 
     // Blog related customizations
     beans_remove_action('beans_post_meta');
-}
-
-// Social links menu registration
-add_action('after_setup_theme', 'beans_child_register_menus');
-
-function beans_child_register_menus()
-{
-    register_nav_menus(array(
-        'social_links_menu' => 'Social Links Menu',
-    ));
 }
