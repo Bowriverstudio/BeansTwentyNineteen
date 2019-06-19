@@ -56,15 +56,6 @@ function beans_child_post_image()
 	<?php
 }
 
-// Social links menu registration
-add_action( 'after_setup_theme', 'beans_child_register_menus' );
-
-function beans_child_register_menus() {
-	register_nav_menus( array(
-		'social_links_menu' => 'Social Links Menu',
-	) );
-}
-
 function site_title_description()
 {
 	$site_info_color_suffix = "";

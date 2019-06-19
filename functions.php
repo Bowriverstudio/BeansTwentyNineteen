@@ -42,8 +42,8 @@ function beans_child_enqueue_uikit_assets() {
 	beans_compiler_add_fragment( 'uikit', get_stylesheet_directory_uri() . '/style.less', 'less' );
 
 	// Load UIKit components
-	beans_uikit_enqueue_components(array( 'sticky', 'slideshow', 'dotnav', 'slidenav' ), 'add-ons');
-	beans_uikit_enqueue_components(array( 'cover', 'section', 'block', 'flex', 'padding', 'grid', 'width', 'animation', 'overlay', 'utility', 'thumbnav', 'thumbnail' ));
+	beans_uikit_enqueue_components(array( 'sticky', ), 'add-ons');
+	beans_uikit_enqueue_components(array( 'cover', 'overlay', 'utility', ));
 }
 
 // Add child theme customizations
@@ -80,4 +80,13 @@ function custom_modify_child_theme()
 
 		// Blog related customizations
 		beans_remove_action('beans_post_meta');
+}
+
+// Social links menu registration
+add_action( 'after_setup_theme', 'beans_child_register_menus' );
+
+function beans_child_register_menus() {
+	register_nav_menus( array(
+		'social_links_menu' => 'Social Links Menu',
+	) );
 }

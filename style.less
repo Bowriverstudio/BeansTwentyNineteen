@@ -4,6 +4,8 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
 
+@base-heading-size:   3.5em;
+
 :focus {
 	outline: none;
 }
@@ -15,6 +17,43 @@ body {
 	line-height: 1.8;
 	text-rendering: optimizeLegibility;
 }
+
+/* Fixed h2 style when in .uk-article */
+
+h2 {
+  padding-bottom: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bolder;  
+  line-height: normal;
+}
+
+h1 {
+  font-size: @base-heading-size;
+}
+
+h2 {
+  font-size: @base-heading-size * 0.85;
+}
+
+h3 {
+  font-size: @base-heading-size * 0.7;
+}
+
+h4 {
+  font-size: @base-heading-size * 0.55;
+}
+
+h5 {
+  font-size: @base-heading-size * 0.4;
+}
+
+h6 {
+  font-size: @base-heading-size * 0.25;
+}
+
 /* Header elements
  ====================================================== */
 .site-title {
@@ -50,15 +89,12 @@ body {
 	margin: 0 0.25em 0 0;
 }
 
-h1 {
+.post-title,
+.post-title-big-margin {
 	margin: 66px 0 42px;
-	font-family: @ubuntu-fonts;
-	font-weight: bolder;
-	font-size: 3.5em;
-  line-height: normal;
 }
 
-h1.post-title-big-margin {
+.post-title-big-margin {
   margin: 132px 0 42px;
   color: white;
 }
@@ -107,8 +143,9 @@ li.uk-active > a {
 	border-bottom-width: 0;
 }
 
-h3::before,
-h1::before {
+.footer-column h3::before,
+h1.post-title::before,
+h1.post-title-big-margin::before {
 	background: #767676;
 	content: "\020";
 	display: block;
