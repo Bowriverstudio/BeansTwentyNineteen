@@ -143,7 +143,8 @@ function display_social_links_menu()
 
     <div class="social-links-menu-wrapper uk-grid">
       <?php foreach (array("facebook", "twitter", "instagram") as $key): ?>
-        <a class="uk-icon uk-icon-<?php echo $key; ?> uk-icon-large" href="https://www.<?php echo $key; ?>.com/<?php get_theme_mod( $key . '_tag' ); ?>"> </a>
+        <?php $white = ( has_post_thumbnail() ) ? "white-text " : "" ;?>
+        <a class="<?php echo $white; ?>uk-icon uk-icon-<?php echo $key; ?> uk-icon-large" href="https://www.<?php echo $key; ?>.com/<?php get_theme_mod( $key . '_tag' ); ?>"> </a>
       <?php endforeach; ?>
     </div>
 
