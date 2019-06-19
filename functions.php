@@ -70,6 +70,9 @@ function custom_modify_child_theme()
 		// Only show if no featured image present
 		if ( ! has_post_thumbnail() ) {
 			beans_add_smart_action('beans_header_after_markup', 'beans_child_home_banner');
+		} else {
+			beans_add_attribute('beans_menu_item_link', 'class', 'white-text');
+			beans_remove_attribute('beans_menu_item', 'class', 'uk-active');
 		}
 
 		beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
