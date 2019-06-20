@@ -99,7 +99,7 @@ h6 {
 	font-size: 1.8em;
 	line-height: 1.5;
 	font-weight: 400;
-	margin: 0 0.25em 0 0;
+	margin: 32px 0.25em 32px 0;
 }
 
 .post-title,
@@ -216,7 +216,8 @@ h1.post-title-big-margin::before {
 }
 // Styles to fix images full width dimensions
 .wp-block-cover.alignfull,
-.wp-block-image.alignfull {
+.wp-block-image.alignfull,
+.wp-block-media-text.alignfull {
 	margin-left: ~"calc(-@{grid-gutter-horizontal} + -@{panel-box-padding})";
 	width: 100vw;
 	max-width: 100vw;
@@ -237,10 +238,20 @@ h1.post-title-big-margin::before {
 
 .uk-container-center {
 	.wp-block-cover.alignfull,
-  .wp-block-image.alignfull {
+  .wp-block-image.alignfull,
+  .wp-block-media-text.alignfull {
 		margin-left: ~"calc(50% - 50vw)";
 		margin-right: ~"calc(50% - 50vw)";
 		width: 100vw;
 		max-width: 100vw;
+	}
+}
+
+.uk-container-center {
+  .wp-block-media-text.alignwide {
+		margin-left: auto;
+		margin-right: ~"calc(100% - 10vw)";
+		width: 70vw;
+		max-width: 75vw;
 	}
 }
