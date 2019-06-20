@@ -85,12 +85,13 @@ function custom_modify_child_theme()
         // Necessary adjustments when featured image is present so links remain visible
         beans_add_attribute('beans_menu_item_link', 'class', 'white-text');
         beans_remove_attribute('beans_menu_item', 'class', 'uk-active');
+				beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'has-background-cover-100pct'));
+				beans_wrap_inner_markup('beans_child_header', 'beans_child_header_back_cover', 'div', array('class' => 'has-background-cover-opacity'));
     }
 
-    beans_wrap_markup('beans_header', 'beans_child_header', 'div', array('class' => 'uk-cover-background'));
     // Post title customizations
     beans_add_smart_action('beans_child_header_append_markup', 'beans_child_post_title');
-    beans_add_smart_action('beans_child_header_prepend_markup', 'beans_child_post_image');
+    //beans_add_smart_action('beans_child_header_prepend_markup', 'beans_child_post_image');
 
     // Footer customizations
     beans_modify_action_callback('beans_footer_content', 'beans_child_footer_content');

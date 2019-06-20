@@ -119,6 +119,16 @@ function beans_child_home_banner()
     endif;
 }
 
+function display_background_cover()
+{
+  ?>
+
+  <div class="has-background-cover-opacity">
+  </div>
+
+  <?php
+}
+
 function site_branding_wrap_open()
 {
     ?>
