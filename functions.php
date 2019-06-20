@@ -97,4 +97,6 @@ function custom_modify_child_theme()
 
     // Blog related customizations
     beans_remove_action('beans_post_meta');
+    beans_remove_action('beans_post_meta_categories');
+    beans_remove_action('beans_post_navigation');
 }
